@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Footer from "./components/Footer";
+import Main from "./components/Main";
+import Navbar from "./components/Navbar";
+import Wrapper from "./components/Wrapper";
+import api from "./api";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <Wrapper />
+      <Main featured="NETFLIX ORIGINAL" url={api.fetchNetflixOriginals} />
+      <Main featured="TRENDING" url={api.fetchTrending} />
+      <Main featured="TOP RATED" url={api.fetchTopRated} />
+      <Main featured="ACTION" url={api.fetchActionMovies} />
+      <Main featured="HORROR" url={api.fetchHorrorMovies} />
+      <Main featured="ROMANCE" url={api.fetchRomanceMovies} />
+      <Main featured="COMEDY" url={api.fetchComedyMovies} />
+      <Main featured="DOCUMENTARY" url={api.fetchDocumentaries} />
+      <Footer />
+    </>
   );
 }
 
